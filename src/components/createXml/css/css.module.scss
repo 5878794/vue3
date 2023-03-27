@@ -1,0 +1,226 @@
+
+.main {
+  width: 100%;
+  height: 100%;
+
+  :global(.body) {
+    height: 100%;
+  }
+
+  :global {
+    .prop {
+      width: 300px;
+      height: 100%;
+      border-left: 1px solid #ccc;
+      overflow: auto;
+
+      .title {
+        background: #eee;
+        width: 100%;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .prop_item {
+        width: 100%;
+        height: 40px;
+        padding: 0 10px;
+      }
+
+      .prop_option {
+        padding: 0;
+        height: auto;
+        margin: 10px 0;
+
+        .option {
+          height: 40px;
+          background: #eee;
+          padding: 0 10px;
+        }
+      }
+
+      .option_item {
+        padding: 10px;
+      }
+
+      .prop_name {
+        padding: 0 5px;
+      }
+
+      .option_add {
+        cursor: pointer;
+
+        &:hover {
+          opacity: .5;
+        }
+      }
+
+      .repeatSelect {
+        height: 28px;
+        width: 100%;
+        outline: none;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        display: block;
+      }
+
+      .option_del {
+        width: 24px;
+        height: 24px;
+        background: red;
+        margin-left: 10px;
+        color: #fff;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .prop_item_name {
+        width: 70px;
+        text-align: center;
+      }
+
+      .rule_row {
+        padding: 10px;
+
+        select {
+          display: block;
+          height: 28px;
+          outline: none;
+          border: 1px solid #ccc;
+          padding: 0 10px;
+          box-sizing: border-box;
+        }
+      }
+
+      input {
+        display: block;
+        width: 100%;
+        height: 28px;
+        outline: none;
+        border: 1px solid #ccc;
+        padding: 0 10px;
+        box-sizing: border-box;
+
+        &:focus {
+          border: 1px solid #a1a1ff;
+        }
+      }
+    }
+  }
+
+  :global(.inputs) {
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #ccc;
+    padding: 0 20px;
+
+    p {
+      padding: 0 10px;
+    }
+  }
+
+  :global {
+    .tempMoved {
+      width: 100%;
+      height: 0;
+      overflow: hidden;
+    }
+
+    .main {
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+      overflow: auto;
+
+      .mainDiv {
+        width: 100%;
+        display: grid;
+        grid-auto-flow: row;
+
+        .input_item {
+          border: 1px solid #eee;
+          //background: #ccc;
+        }
+
+        .input_label {
+          padding-right: 5px;
+          width: 80px;
+          text-align: center;
+        }
+
+        .group_html {
+          border: 1px solid #ccc;
+        }
+
+        .group_body {
+          display: grid;
+          grid-auto-flow: row;
+        }
+
+        .group_title {
+          //background: #ccc;
+        }
+
+        .group_main {
+          //border: 1px solid #ccc;
+        }
+      }
+    }
+  }
+
+  :global {
+    .custom_rule {
+      .itemP {
+        margin: 5px 0;
+
+        p {
+          margin: 0 5px;
+          padding: 0 5px;
+          border: 1px solid #ccc;
+          cursor: pointer;
+
+          &:hover {
+            opacity: .6;
+          }
+        }
+      }
+    }
+
+    .custom_main {
+      border: 1px solid #aaa;
+      height: 200px;
+
+      .custom_item_body {
+        height: 28px;
+        margin: 10px;
+        background: #eee;
+        padding: 0 10px;
+        position: relative;
+
+        &:hover {
+          .del {
+            display: block;
+          }
+        }
+      }
+
+      .del {
+        position: absolute;
+        right: -7px;
+        top: -7px;
+        width: 14px;
+        height: 14px;
+        line-height: 10px;
+        text-align: center;
+        border-radius: 14px;
+        background: red;
+        color: #fff;
+        font-size: 12px;
+        display: none;
+        cursor: pointer;
+      }
+    }
+  }
+}

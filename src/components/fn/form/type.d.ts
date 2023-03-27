@@ -1,0 +1,1 @@
+declare module '@zx-pack/form-v2'

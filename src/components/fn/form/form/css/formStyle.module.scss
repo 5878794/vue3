@@ -1,0 +1,19 @@
+
+.main {
+    :global {
+        .__add_list__ {
+            margin-bottom: 20px;
+
+            .input_item {
+                margin-bottom: 0;
+            }
+
+            .el-pagination {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-end;
+            }
+        }
+    }
+}

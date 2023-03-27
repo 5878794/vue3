@@ -1,0 +1,60 @@
+
+.container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.inputs {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 40px;
+    background: #ccc;
+    border-bottom: 1px solid #333;
+
+    :global {
+        .iconfont {
+            font-size: 24px;
+            margin: 0 10px;
+        }
+    }
+}
+
+.fileInfo {
+    position: absolute;
+    left: 0;
+    top: 40px;
+    width: 150px !important;
+    bottom: 0;
+    background: #55a532;
+}
+
+
+.props {
+    position: absolute;
+    right: 0;
+    width: 240px !important;
+    bottom: 0;
+    top: 40px;
+    background: #0077aa;
+}
+
+
+.main {
+    position: absolute;
+    left: 150px;
+    right: 240px;
+    top: 40px;
+    bottom: 0;
+    background: #795da3;
+}
+
+//TODO
+.main_pointer_none *:not(span) {
+    pointer-events: none;
+    color: red;
+}
+
+

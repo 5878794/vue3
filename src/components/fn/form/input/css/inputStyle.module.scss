@@ -1,0 +1,65 @@
+
+.input_item {
+    width: 100%;
+    margin-bottom: 20px;
+
+    :global {
+        .el-form-item {
+            width: 100%;
+        }
+
+        .el-form-item__content {
+            flex: 1 1 0 !important;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .file_input{
+            flex: 1 1 0 !important;
+        }
+        .el-upload{
+            position: relative;
+            top:-1px;
+        }
+
+    }
+
+    .input{
+        flex: 1 1 0 !important;
+    }
+
+    .textUnit {
+        max-width: 80px;
+        padding: 0 5px;
+    }
+
+    .selectUnit {
+        width: 80px;
+    }
+
+    .img_wall {
+        :global(.el-upload--picture-card) {
+            &:before {
+                content: '+';
+                font-size: 80px;
+                color: #aaa;
+                position: relative;
+                top: -5%;
+            }
+        }
+    }
+
+    .button {
+        :global(.el-form-item__content) {
+            flex: unset !important;
+        }
+
+        :global(.el-icon) {
+            position: relative;
+            top: -1px;
+        }
+    }
+
+}
