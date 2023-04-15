@@ -38,46 +38,46 @@ demo end-----------------------------------------
 import {defineComponent, onMounted, onUnmounted} from "vue";
 
 const getClassMethods = (obj: any) => {
-    let prototypes: any = [];
-    const fn = (obj: any) => {
-        const pro = Object.getPrototypeOf(obj);
-        if (pro) {
-            prototypes.unshift(pro)
-            fn(pro)
-        }
+  let prototypes: any = [];
+  const fn = (obj: any) => {
+    const pro = Object.getPrototypeOf(obj);
+    if (pro) {
+      prototypes.unshift(pro)
+      fn(pro)
     }
-    fn(obj);
-    //删除默认的原型
-    prototypes = prototypes.splice(1);
+  }
+  fn(obj);
+  //删除默认的原型
+  prototypes = prototypes.splice(1);
 
-    const back: any = {};
-    prototypes.map((rs: any) => {
-        const keys = Object.getOwnPropertyNames(rs);
-        for (let [key, val] of Object.entries(keys)) {
-            if (val !== 'constructor') {
-                back[val] = true;
-            }
-        }
-    })
+  const back: any = {};
+  prototypes.map((rs: any) => {
+    const keys = Object.getOwnPropertyNames(rs);
+    for (let [key, val] of Object.entries(keys)) {
+      if (val !== 'constructor') {
+        back[val] = true;
+      }
+    }
+  })
 
-    return back;
+  return back;
 }
 
 const classForVueExpose = (obj: any) => {
-    const keys = getClassMethods(obj);
+  const keys = getClassMethods(obj);
 
-    const back: any = {...obj};
-    // const back: any = {};
+  const back: any = {...obj};
+  // const back: any = {};
 
-    Object.keys(keys).map((key: string) => {
-        if (key !== 'render') {
-            back[key] = function (...arg: any) {
-                return obj[key](...arg)
-            }
-        }
-    })
+  Object.keys(keys).map((key: string) => {
+    if (key !== 'render') {
+      back[key] = function (...arg: any) {
+        return obj[key](...arg)
+      }
+    }
+  })
 
-    return back;
+  return back;
 }
 
 
@@ -92,33 +92,32 @@ const classForVueExpose = (obj: any) => {
 //     }
 //   })
 // }
-
 export default function (obj: any) {
-    let a: any;
+  let a: any;
 
-    const props = obj.setComponent ? obj.setComponent() : {};
+  const props = obj.setComponent ? obj.setComponent() : {};
 
-    return defineComponent({
-        ...props,
-        setup(props: any, opt: any) {
-            a = new obj(props, opt);
+  return defineComponent({
+    ...props,
+    setup(props: any, opt: any) {
+      a = new obj(props, opt);
 
-            onMounted(() => {
-                if (a.ready) {
-                    a.ready();
-                }
-            })
-
-            onUnmounted(() => {
-                if (a.destroy) {
-                    a.destroy();
-                }
-            })
-
-            return classForVueExpose(a);
-        },
-        render() {
-            return a.render()
+      onMounted(() => {
+        if (a.ready) {
+          a.ready();
         }
-    })
+      })
+
+      onUnmounted(() => {
+        if (a.destroy) {
+          a.destroy();
+        }
+      })
+
+      return classForVueExpose(a);
+    },
+    render() {
+      return a.render()
+    }
+  })
 }
