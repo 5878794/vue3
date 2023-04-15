@@ -35,6 +35,8 @@ export default classDefineComponent(A);
 demo end-----------------------------------------
 */
 
+import {defineComponent,onMounted,onUnmounted} from "vue";
+
 const getClassMethods = (obj: any) => {
   let prototypes: any = [];
   const fn = (obj: any) => {
@@ -77,7 +79,7 @@ const classForVueExpose = (obj: any) => {
 
   return back;
 }
-import {defineComponent} from "vue";
+
 
 // export default function (obj: any) {
 //   return defineComponent({
@@ -100,6 +102,19 @@ export default function (obj: any) {
     ...props,
     setup(props: any, opt: any) {
       a = new obj(props, opt);
+
+      onMounted(()=>{
+        if(a.ready){
+          a.ready();
+        }
+      })
+
+      onUnmounted(()=>{
+        if(a.destroy){
+          a.destroy();
+        }
+      })
+
       return classForVueExpose(a);
     },
     render() {

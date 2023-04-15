@@ -31,6 +31,14 @@ class Index{
         this.show.value = components[i].com;
     }
 
+    ready(){
+        console.log(123)
+    }
+
+    destroy(){
+        console.log('end')
+    }
+
     render(){
         return <div class={[boxStyle.box_hlt]}>
             <div class={[pageStyle.left]} style='cursor:pointer;line-height:20px;'>
